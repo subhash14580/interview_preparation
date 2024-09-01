@@ -14,4 +14,20 @@ Java 17 features
     Applets API are removed from the Java17. Since many developers are started the carreer using the applets and now the 
 	apis are depreciated from Java 9 and this applet version are marked it as removal.
 	
-4. 
+4. Introduction to Vector API -- This introduces to do single instruction and can do multiple operations in parallel.
+  Example : 
+	public void newVectorComputation(float[] a, float[] b, float[] c) {
+	    for (var i = 0; i < a.length; i += SPECIES.length()) {
+	        var m = SPECIES.indexInRange(i, a.length);
+	        var va = FloatVector.fromArray(SPECIES, a, i, m);
+	        var vb = FloatVector.fromArray(SPECIES, b, i, m);
+	        var vc = va.mul(vb);
+	        vc.intoArray(c, i, m);
+	    }
+	}
+	
+	public void commonVectorComputation(float[] a, float[] b, float[] c) {
+	    for (var i = 0; i < a.length; i ++) {
+	        c[i] = a[i] * b[i];
+	    }
+	}
